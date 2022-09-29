@@ -1,0 +1,28 @@
+<div class="px-5 py-3">
+    <ng-container *ngIf="accounts">
+        <h3>All Accounts</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Type</th>
+                    <th>Status</th>
+                    <th>Created On</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of accounts">
+                    <td>{{ i.accountNumber }}</td>
+                    <td>{{ i.type }}</td>
+                    <td>{{ i.status }}</td>
+                    <td>{{ i.createdOn | date }}</td>
+                    <td>
+                        <a class="btn btn-success me-2" [routerLink]="['details', i.id]">Details</a>
+                        <a class="btn btn-warning" [routerLink]="['edit', i.id]">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+</div>

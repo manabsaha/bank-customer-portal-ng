@@ -1,0 +1,8 @@
+<div class="row px-5 py-3">
+    <div class="col-6">
+        <app-customer-detail [customer]="customer$ | async"></app-customer-detail>
+    </div>
+    <div class="col-6">
+        <app-account-list [accounts]="accounts$ | async"></app-account-list>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<div [style]="{position:'relative'}">
+    <mdb-carousel [controls]="false" [indicators]="true">
+        <mdb-carousel-item>
+            <img src="assets/bank2.jpg" [style]="{height:'90vh'}" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-title">Your own Piggy Bank</h5>
+            </div>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+            <img src="assets/bank.jpg" [style]="{height:'90vh'}" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-title">We store happiness</h5>
+            </div>
+        </mdb-carousel-item>
+        <mdb-carousel-item>
+            <img src="assets/bank3.jpg" [style]="{height:'90vh'}" class="d-block w-100" />
+            <div class="carousel-caption d-none d-md-block">
+                <h5 class="carousel-title">Delivering promises</h5>
+            </div>
+        </mdb-carousel-item>
+    </mdb-carousel>
+
+    <ng-container *ngIf="!(authService.user$ | async)">
+        <div [style]="{position:'absolute', top:'2vh',left:'100px'}">
+            <app-login></app-login>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="authService.user$ | async">
+        <div [style]="{position:'absolute', top:'1vh',left:'100px',width: '90%'}" class="px-5 pt-5">
+            <div class="col-5 card mb-4" [style]="{backgroundColor: 'rgba(255, 255, 255, 0.75)'}">
+                <div class="card-body text-center" [style]="{height: '30vh'}">
+                    <img src="assets/customer.png" class="mb-3" width="80" height="80" />
+                    <h5 class="card-title">Total Customers</h5>
+                    <h5 class="card-title">{{ totalCustomers$ | async }}</h5>
+                </div>
+            </div>
+            <div class="col-5 card" [style]="{backgroundColor: 'rgba(255, 255, 255, 0.75)'}">
+                <div class="card-body text-center" [style]="{height: '30vh'}">
+                    <img src="assets/account.png" class="mb-3" width="80" height="80" />
+                    <h5 class="card-title">Total Accounts</h5>
+                    <h5 class="card-title">{{ totalAccounts$ | async }}</h5>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>
+
+<div class="row text-center m-0">
+    <div class="col-3 p-3">
+        <div class="card">
+            <div class="card-body" [style]="{height: '30vh'}" >
+                <img src="assets/debit-card.png" class="mb-3" width="80" height="80" />
+                <h5 class="card-title">Checking Simplified : Open Today</h5>    
+            </div>
+        </div>
+    </div>
+    <div class="col-3 p-3">
+        <div class="card">
+            <div class="card-body" [style]="{height: '30vh'}" >
+                <img src="assets/accounting-book.png" class="mb-3" width="80" height="80" />
+                <h5 class="card-title">Make saving automatic</h5>   
+            </div>
+        </div>  
+    </div>
+    <div class="col-3 p-3">
+        <div class="card">
+            <div class="card-body" [style]="{height: '30vh'}">
+                <img src="assets/debit-card.png" class="mb-3" width="80" height="80"/>
+                <h5 class="card-title">Free Online Budgeting Tools</h5> 
+            </div>
+        </div>
+    </div>
+    <div class="col-3 p-3">
+        <div class="card">
+            <div class="card-body" [style]="{height: '30vh'}">
+                <img src="assets/accounting-book.png" class="mb-3" width="80" height="80" />
+                <h5 class="card-title">Find routing or account number</h5>  
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-facebook-f"></i></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-instagram"></i></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+                    class="fab fa-linkedin-in"></i></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                PiggyBank a Fortune 500 company, is an Indian Multinational, Public Sector Banking and Financial services statutory body
+                headquartered in Mumbai. The rich heritage and legacy of over 200 years, accredits PB as the most trusted Bank by
+                Indians through generations. <br/>
+                PB, the largest Indian Bank with 1/4th market share, serves over 45 crore customers through its vast network of over
+                22,000 branches, 62617 ATMs/ADWMs, 71,968 BC outlets, with an undeterred focus on innovation, and customer centricity,
+                which stems from the core values of the Bank - Service, Transparency, Ethics, Politeness and Sustainability.
+            </p>
+        </section>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://piggybank.com/">Piggy Bank</a>
+    </div>
+</footer>

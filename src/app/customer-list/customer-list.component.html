@@ -1,0 +1,26 @@
+<div class="px-5 py-3">
+  <h3>All Customers</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Folio</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customers$ | async">
+        <td>{{ c.id }}</td>
+        <td>{{ c.folioNumber }}</td>
+        <td>{{ c.firstName }} {{ c.lastName }}</td>
+        <td>{{ c.gender }}</td>
+        <td>
+          <a class="btn btn-success me-2" [routerLink]="['details',c.id]">Details</a>
+          <a class="btn btn-warning" [routerLink]="['edit',c.id]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
