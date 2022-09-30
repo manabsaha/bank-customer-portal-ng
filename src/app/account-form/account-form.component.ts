@@ -48,17 +48,19 @@ export class AccountFormComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       id: [],
-      accountNumber: ['', [Validators.required]],
+      accountNumber: [
+        '',
+        [Validators.required, Validators.pattern(/^[0-9]{12}$/)],
+      ],
       type: ['', [Validators.required]],
       rateOfInterest: ['', [Validators.required]],
       createdOn: ['', [Validators.required]],
       status: ['', [Validators.required]],
       closedOn: [],
-      ifsc: [],
-      cardNumber: [],
+      ifsc: ['', [Validators.required]],
+      cardNumber: ['', [Validators.pattern(/^[0-9]{16}$/)]],
       cardActive: [],
       currency: ['', [Validators.required]],
-      customer: [],
       customerId: ['', [Validators.required]],
     });
 
@@ -85,6 +87,7 @@ export class AccountFormComponent implements OnInit {
         .read<AccountViewModel>(`accounts/${this.formId}`)
         .subscribe({
           next: (res) => {
+            //  required for date deserialization
             res.createdOn = res.createdOn.split('T')[0];
             res.closedOn = res.closedOn?.split('T')[0];
             this.form.patchValue(res);
@@ -144,6 +147,9 @@ export class AccountFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+    //  what if an empty form is submitted?
+    this.form.markAllAsTouched();
+
     if (this.form.valid) {
       console.log(this.form.value);
       if (this.formId === 0) {

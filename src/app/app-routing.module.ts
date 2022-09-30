@@ -18,7 +18,7 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: HomeComponent,
   },
   {
     path: '',

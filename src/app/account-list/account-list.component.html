@@ -18,8 +18,8 @@
                     <td>{{ i.status }}</td>
                     <td>{{ i.createdOn | date }}</td>
                     <td>
-                        <a class="btn btn-success me-2" [routerLink]="['details', i.id]">Details</a>
-                        <a class="btn btn-warning" [routerLink]="['edit', i.id]">Edit</a>
+                        <a class="btn btn-success me-2" [routerLink]="['/accounts/details', i.id]">Details</a>
+                        <a class="btn btn-warning" [routerLink]="['/customers/edit', i.id]">Edit</a>
                     </td>
                 </tr>
             </tbody>

@@ -32,7 +32,7 @@ export class AuthenticatedGuard implements CanActivate {
       map((v) => {
         if (!v) {
           this.toastr.warning('Login required');
-          this.router.navigate(['login'], {
+          this.router.navigate([''], {
             queryParams: { returnUrl: state.url },
           });
 
